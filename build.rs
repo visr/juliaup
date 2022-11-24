@@ -23,6 +23,7 @@ fn produce_version_db() -> Result<JuliaupVersionDB> {
     let mut original_available_versions: Vec<Version> = Vec::new();
 
     let lts_version = Version::parse("1.6.7")?;
+    let alpha_version = Version::parse("1.9.0-alpha1")?;
     let beta_version = Version::parse("1.8.3")?;
     let rc_version = Version::parse("1.8.3")?;
     let nightly_version = Version::parse("1.10.0-latest")?;
@@ -75,6 +76,7 @@ fn produce_version_db() -> Result<JuliaupVersionDB> {
     original_available_versions.push(Version::parse("1.8.1")?);
     original_available_versions.push(Version::parse("1.8.2")?);
     original_available_versions.push(Version::parse("1.8.3")?);
+    original_available_versions.push(Version::parse("1.9.0-alpha1")?);
 
     let mut db = JuliaupVersionDB {
         available_versions: HashMap::new(),
@@ -116,6 +118,7 @@ fn produce_version_db() -> Result<JuliaupVersionDB> {
 
     add_channels(&mut db, &"release", &release_version)?;
     add_channels(&mut db, &"lts",     &lts_version)?;
+    add_channels(&mut db, &"alpha",   &alpha_version)?;
     add_channels(&mut db, &"beta",    &beta_version)?;
     add_channels(&mut db, &"rc",      &rc_version)?;
     add_channels(&mut db, &"nightly", &nightly_version)?;
