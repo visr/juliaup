@@ -1,4 +1,4 @@
-use assert_cmd::cargo::cargo_bin_cmd;
+use assert_cmd::Command;
 use predicates::prelude::*;
 
 fn test_shell_completion(shell: &str, expected_patterns: &[&str]) {
@@ -7,7 +7,8 @@ fn test_shell_completion(shell: &str, expected_patterns: &[&str]) {
         .tempdir()
         .unwrap();
 
-    let mut cmd = cargo_bin_cmd!("juliaup")
+    let mut cmd = Command::cargo_bin("juliaup")
+        .unwrap()
         .arg("completions")
         .arg(shell)
         .env("JULIA_DEPOT_PATH", depot_dir.path())

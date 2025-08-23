@@ -29,6 +29,7 @@ pub mod command_update_version_db;
 pub mod config_file;
 pub mod global_paths;
 pub mod jsonstructs_versionsdb;
+pub mod julia_launcher;
 pub mod operations;
 pub mod utils;
 pub mod version_selection;

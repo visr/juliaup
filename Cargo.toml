@@ -26,31 +26,31 @@ codegen-units = 1
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-clap = { version = "4", features = ["derive", "color", "wrap_help"] }
-clap_complete = "4"
-clap_complete_nushell = "4"
-dirs = "6"
-dunce = "1"
-serde = { version = "1", features = ["derive"] }
-serde_json = "1"
-semver = "1"
-anyhow = "1"
-tempfile = "3"
-flate2 = "1"
-tar = "0.4"
-normpath = "1"
-fs_extra = "1"
-thiserror = "2"
-indicatif = "0.18"
-console = "0.16"
-ctrlc = "3"
-url = "2"
-cli-table = "0.5"
-itertools = "0.14"
-cluFlock = "1"
-chrono = { version = "0.4", features = ["serde"] }
-human-panic = "2"
-log = "0.4"
+clap = { version = "4.5", features = ["derive"] }
+clap_complete = "4.5"
+clap_complete_nushell = "4.5"
+dirs = "6.0.0"
+dunce = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+semver = "1.0.18"
+anyhow = "1.0.72"
+tempfile = "3.12"
+flate2 = "1.0"
+tar = "0.4.39"
+normpath = "1.3"
+fs_extra = "1.3.0"
+thiserror = "2.0"
+indicatif = "0.17"
+console = "0.15"
+ctrlc = "3.4"
+url = "2.4.0"
+cli-table = "0.5.0"
+itertools = "0.14.0"
+cluFlock = "1.2.7"
+chrono = { version = "0.4.26", features = ["serde"] }
+human-panic = "2.0"
+log = "0.4.25"
 env_logger = "0.11"
 dialoguer = "0.12"
 shellexpand = "3"
@@ -100,6 +100,7 @@ dummy = []
 binjuliainstaller = []
 binjulialauncher = []
 winpkgidentityext = []
+juliapkg = []
 
 [package.metadata.msix]
 winstoremsix = { file = "deploy/msix/PackagingLayout.xml", variables = [
@@ -135,3 +136,8 @@ path = "src/bin/juliaup.rs"
 name = "juliainstaller"
 path = "src/bin/juliainstaller.rs"
 required-features = ["binjuliainstaller"]
+
+[[bin]]
+name = "juliapkg"
+path = "src/bin/juliapkg.rs"
+required-features = ["juliapkg"]
