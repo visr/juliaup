@@ -1,3 +1,5 @@
+#![cfg(feature = "juliapkg")]
+
 use assert_cmd::Command;
 use predicates::prelude::*;
 use std::env;

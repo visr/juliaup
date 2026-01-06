@@ -1,4 +1,4 @@
-use assert_cmd::cargo::cargo_bin_cmd;
+use assert_cmd::Command;
 use assert_fs::prelude::*;
 use predicates::prelude::*;
 use std::path::Path;
@@ -11,7 +11,8 @@ fn command_initial_setup() {
         .child(Path::new("juliaup"))
         .assert(predicate::path::missing());
 
-    cargo_bin_cmd!("juliaup")
+    Command::cargo_bin("juliaup")
+        .unwrap()
         .arg("46029ef5-0b73-4a71-bff3-d0d05de42aac")
         .env("JULIA_DEPOT_PATH", depot_dir.path())
         .env("JULIAUP_DEPOT_PATH", depot_dir.path())
